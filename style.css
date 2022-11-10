@@ -12,6 +12,117 @@ body {
     font-family:'Epilogue';
     background-color:hsl(0, 0%, 98%);
     font-size:18px;
+    overflow-x:hidden;
+}
+
+header {
+    width:100%;
+    height:70px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size:15px;
+    padding:10px 1em;
+}
+
+header img {
+    width:80px;
+}
+
+.head-list {
+    list-style-type: none;
+}
+
+
+
+
+a {
+    text-decoration: none;
+    color:hsl(0, 0%, 8%);
+}
+
+.arrow {
+    margin-bottom:2px;
+    margin-left:2px;
+    width:10px;
+    height:6px;
+    color:black;
+    transform:rotate(0deg);
+    transition:transform 0.2s ease-in-out;
+}
+
+.openarrow {
+    transform:rotate(180deg);
+}
+
+
+button {
+    font-family: inherit;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+    cursor:pointer;
+}
+
+.mobile-nav {
+    position:absolute;
+    background-color:white;
+    z-index:100;
+    right:-100vw;
+    bottom:0;
+    padding:10px;
+    width:60vw;
+    height:100vh;
+    font-size:20px;
+    transition:right 0.2s ease-in-out;
+}
+
+.hamburger {
+    font-size:30px;
+}
+
+.mobile-nav.active {
+
+    right:0px;
+}
+
+
+.mobile-nav a {
+    color:hsl(0, 0%, 41%);
+}
+
+.mobile-x {
+    position:absolute;
+    right:25px;
+    top:20px;
+    cursor:pointer;
+}
+
+.mobile-display {
+    display: flex;
+    flex-direction: column;
+    margin-top:2em;
+}
+
+.nav-btn {
+    font-size:14px;
+    margin-left:2em;
+    padding:0.8em 20px;
+    border-radius:8px;
+    border:1px solid rgba(255, 255, 255, 0);
+    background:none;
+}
+
+.nav-btn:hover {
+    color:hsl(0, 0%, 0%);
+}
+
+.nav-btn:hover:nth-child(2)
+{
+    border-color:hsl(0, 0%, 8%);
+}
+
+.hamburger{
+    cursor:pointer;
 }
 
 .mobile {
@@ -49,13 +160,21 @@ p{
 .more-btn {
     padding:1.2em 1.5rem;
     border-radius:15px;
-    border:none;
+    border:1px solid hsl(0, 0%, 8%);
     background-color:hsl(0, 0%, 8%);
     color:hsl(0, 0%, 98%);
-    font-family:inherit;
     font-weight:700;
     cursor:pointer;
     margin-top:1em;
+
+}
+
+
+
+.more-btn:hover {
+    background-color:hsl(0, 0%, 98%);
+    color:hsl(0, 0%, 8%);
+    border:1px solid hsl(0, 0%, 8%);
 
 }
 
@@ -81,17 +200,93 @@ footer {
 }
 
 
-@media(min-width:800px)
+/*Interactive Feature List Design */
+
+.box-items
+{
+    display:none;
+
+    width:220px;
+    margin-bottom:1em;
+}
+
+.box-list {
+    list-style-type:none;
+    margin-left:-20px;
+}
+
+.box-features {
+    margin-top:1.2em;
+}
+
+.box-img {
+    width:18px;
+    margin-right:10px;
+}
+
+.open{
+    display:block;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media(min-width:840px)
 {
 
-    body {
-        margin: 0px 1em;
-        height:100vh;
+    main {
+        display:flex;
+        position:relative;
+        top:5em;
     }
     .flex-area {
         display:flex;
         flex-direction: row-reverse;
-        gap:2em;
+        justify-content: space-around;
+
+    }
+
+    header {
+        position:relative;
+        z-index:4
+
+    }
+
+    .head-list {
+        margin-left:1em;
+        display:flex;
+    }
+
+
+    ul {
+        list-style-type: none;
+    }
+    
+    li {
+        font-size:15px;
+        margin-right:2em;
+        
+    }
+    
+    .desktop-nav {
+        width:100%;
+        height:50px;
+        background:none;
+        z-index:1;
+        display:flex;
+        position:static;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mobile-display {
+        flex-direction: row;
+        margin-top:0;
+    }
+
+
+    .hamburger, .mobile-x {
+        display:none; 
     }
 
 
@@ -120,22 +315,23 @@ footer {
 
     }
 
+    .client {
+        padding: 0px 5px;
+        
+    }
+
     .client-container {
         position:absolute;
-        bottom:-6em;
+        bottom:-5.5em;
         justify-content: left;
     }
 
 
-    .image-container {
-        max-width:700px;
-        max-height:700px;
-    }
 
     .desktop-img{
         display:flex;
-        width:100%;
-        max-height:640px;
+        width:500px;
+        max-height:700px;
     }
 
     .mobile-img {
@@ -146,6 +342,38 @@ footer {
         display:block;
         position:absolute;
         bottom:2px;
+    }
+
+
+    /* Box design Desktop */
+    .box-items {
+        display:block;
+        position:absolute;
+        width:max-content;
+        height:190px;
+        border-radius:10px;
+        box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.123);
+        background-color: white;
+        top:-300vh;
+        transition: top 0.1s ease-in-out;
+        z-index:2
+
+    }
+
+    .feature-box {
+        left:4.5em;
+
+    }
+
+    .company-box {
+        padding:0;
+        height:120px;
+        left:13em;
+    }
+
+    .open{
+        top:2.5em;
+        
     }
 }
 
@@ -171,6 +399,10 @@ footer {
         width:500px;
     }
 }
+
+
+
+
 
 
 
