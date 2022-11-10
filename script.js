@@ -1,3 +1,4 @@
+
 const navBtn = document.getElementById('bar-js')
 const navBar = document.getElementById('nav-js')
 const closeNav = document.getElementById('exit-js')
@@ -56,4 +57,6 @@ function toggleCompany(){
         companyBtn.style.color = "black"
     }
 }
+
+
 
