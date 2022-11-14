@@ -4,6 +4,10 @@
     box-sizing:border-box;
 }
 
+html, body {
+    overflow-x:hidden;
+}
+
 body {
     display:flex;
     align-items: center;
@@ -12,7 +16,8 @@ body {
     font-family:'Epilogue';
     background-color:hsl(0, 0%, 98%);
     font-size:18px;
-    overflow-x:hidden;
+    position:relative;
+    height:100vh;
 }
 
 header {
@@ -74,6 +79,10 @@ button {
     height:100vh;
     font-size:20px;
     transition:right 0.2s ease-in-out;
+}
+
+.mobile-nav-li {
+    margin-top:1em;
 }
 
 .hamburger {
@@ -231,6 +240,13 @@ footer {
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
 
+@media(min-width:500px)
+{
+    .mobile-nav-li {
+        text-align: center;
+    }
+}
+
 @media(min-width:840px)
 {
 
@@ -281,6 +297,10 @@ footer {
 
     .mobile-display {
         flex-direction: row;
+        margin-top:0;
+    }
+    
+    .mobile-nav-li {
         margin-top:0;
     }
 
