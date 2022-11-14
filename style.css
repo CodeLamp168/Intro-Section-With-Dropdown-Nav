@@ -249,6 +249,9 @@ footer {
 
 @media(min-width:840px)
 {
+    body {
+        height:auto;
+    }
 
     main {
         display:flex;
